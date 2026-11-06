@@ -2,7 +2,6 @@
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/aymone/safe.svg)](https://pkg.go.dev/github.com/aymone/safe)
 [![CI](https://github.com/aymone/safe/actions/workflows/ci.yml/badge.svg)](https://github.com/aymone/safe/actions/workflows/ci.yml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/aymone/safe)](https://goreportcard.com/report/github.com/aymone/safe)
 [![Go Version](https://img.shields.io/github/go-mod/go-version/aymone/safe)](go.mod)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
