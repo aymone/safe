@@ -18,8 +18,8 @@ go get github.com/aymone/safe
 | `Loop(ctx, component, every, fn)` | ticker loop; panicking or failing ticks are recorded/logged and the loop continues until `ctx` is done |
 | `IsPanic(err)` | `errors.As` shortcut for `*PanicError` |
 
-`PanicError.Error()` never includes the stack, so it is safe to return to an
-HTTP client or wrap.
+`PanicError.Error()` never includes the panic value or the stack (both may hold
+sensitive data and only go to the log), so it is safe to return to a client.
 
 ## Configure (optional, once at startup)
 

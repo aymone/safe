@@ -75,8 +75,8 @@ func (o *Options) logger(ctx context.Context) *slog.Logger {
 }
 
 // PanicError is returned by Call when fn panics. Value and Stack exist for
-// logging; Error() never includes the stack, so it is safe to surface to an
-// HTTP error handler or wrap into another error.
+// server-side logging only (they may hold sensitive data); Error() includes
+// neither, so it is safe to surface to a client or wrap into another error.
 type PanicError struct {
 	Value     any
 	Stack     []byte
@@ -85,7 +85,7 @@ type PanicError struct {
 }
 
 func (e *PanicError) Error() string {
-	return fmt.Sprintf("panic in %s: %v", e.Component, e.Value)
+	return "panic in " + e.Component
 }
 
 // IsPanic reports whether err is or wraps a *PanicError.

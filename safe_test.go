@@ -70,8 +70,8 @@ func TestCallRecoversPanicWithContext(t *testing.T) {
 	if len(pe.Stack) == 0 {
 		t.Fatal("PanicError.Stack is empty")
 	}
-	if strings.Contains(pe.Error(), string(pe.Stack)) {
-		t.Fatal("PanicError.Error() must never include the stack")
+	if got := pe.Error(); got != "panic in fetch" {
+		t.Fatalf("PanicError.Error() = %q, want %q (no value, no stack)", got, "panic in fetch")
 	}
 	if rec.count() != 1 || rec.got[0] != pe {
 		t.Fatalf("OnPanic calls = %d, want 1 with the returned error", rec.count())
